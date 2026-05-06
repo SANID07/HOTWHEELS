@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Add Product</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-black min-h-screen flex items-center justify-center">
+
+    <div class="bg-zinc-900 p-10 rounded-3xl w-full max-w-2xl">
+
+        <h1 class="text-4xl font-bold text-red-500 text-center mb-8">
+            Add Product
+        </h1>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <div class="space-y-5">
+
+                <input type="text"
+                       name="name"
+                       placeholder="Product Name"
+                       class="w-full p-4 rounded-xl bg-black border border-zinc-700 text-white">
+
+                <select name="category"
+                        class="w-full p-4 rounded-xl bg-black border border-zinc-700 text-white">
+
+                    <option value="cars">Cars</option>
+                    <option value="trucks">Trucks</option>
+                    <option value="bikes">Bikes</option>
+                    <option value="limited">Limited Edition</option>
+
+                </select>
+
+                <input type="number"
+                       name="price"
+                       placeholder="Price"
+                       class="w-full p-4 rounded-xl bg-black border border-zinc-700 text-white">
+
+                <input type="file"
+                       name="image"
+                       class="w-full p-4 rounded-xl bg-black border border-zinc-700 text-white">
+
+                <textarea name="description"
+                          placeholder="Description"
+                          rows="4"
+                          class="w-full p-4 rounded-xl bg-black border border-zinc-700 text-white"></textarea>
+
+                <input type="number"
+                       name="stock"
+                       placeholder="Stock"
+                       class="w-full p-4 rounded-xl bg-black border border-zinc-700 text-white">
+
+                <button type="submit"
+                        class="w-full bg-red-600 py-4 rounded-xl text-xl font-bold hover:bg-red-700">
+
+                    Add Product
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

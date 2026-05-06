@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wishlist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-gray-100 to-gray-200 min-h-screen">
+
+<div class="max-w-5xl mx-auto mt-10 bg-white p-8 rounded-2xl shadow-lg">
+
+    <h1 class="text-3xl font-bold mb-8 text-center text-gray-800">
+        My Wishlist ❤️
+    </h1>
+
+    {% for item in items %}
+    <div class="flex items-center justify-between bg-gray-50 hover:shadow-md transition p-4 mb-5 rounded-xl border">
+
+        <!-- Product Image -->
+        <div class="flex items-center gap-5">
+
+            <div class="w-24 h-24 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                {% if item.product.image %}
+                    <img src="{{ item.product.image.url }}" 
+                         class="w-full h-full object-cover">
+                {% else %}
+                    <span class="text-gray-400 text-sm">No Image</span>
+                {% endif %}
+            </div>
+
+            <!-- Product Info -->
+            <div>
+                <h2 class="text-lg font-semibold text-gray-800">
+                    {{ item.product.name }}
+                </h2>
+
+                <p class="text-green-600 font-bold">
+                    ₹{{ item.product.price }}
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Actions -->
+        <div class="flex gap-4 text-sm">
+
+            <a href="{% url 'add_to_cart' item.product.id %}" 
+               class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+                Add to Cart
+            </a>
+
+            
+        </div>
+
+    </div>
+    {% empty %}
+    <div class="text-center py-10">
+        <p class="text-gray-500 text-lg">Your wishlist is empty 💔</p>
+    </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

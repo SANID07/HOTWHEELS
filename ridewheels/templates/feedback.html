@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HotWheels Feedback</title>
+
+    <!-- Tailwind CSS -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.google.com/specimen/Edu+AU+VIC+WA+NT+Guides"
+          rel="stylesheet">
+
+    <style>
+
+        body{
+            font-family: 'Orbitron', sans-serif;
+            background: black;
+            overflow-x: hidden;
+        }
+
+        .glow{
+            box-shadow: 0px 0px 30px rgba(255,0,0,0.7);
+        }
+
+        .input-box{
+            background: #111;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .input-box:focus{
+            border-color: red;
+            box-shadow: 0px 0px 15px rgba(255,0,0,0.7);
+        }
+
+        .star:hover{
+            transform: scale(1.2);
+            color: red;
+        }
+
+    </style>
+
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-8">
+
+    <!-- Background Image -->
+
+    <div class="absolute inset-0">
+
+        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1883&auto=format&fit=crop"
+             class="w-full h-full object-cover opacity-80">
+
+    </div>
+
+    <!-- Feedback Container -->
+
+    <div class="relative z-10 w-full max-w-4xl bg-zinc-900/90 rounded-3xl overflow-hidden shadow-2xl glow grid md:grid-cols-2">
+
+        <!-- Left Side -->
+
+        <div class="hidden md:flex flex-col justify-center items-center bg-black/70 p-10 text-center">
+
+            <h1 class="text-5xl font-yellow text-yellow-500 tracking-widest">
+
+                HOTWHEELS
+
+            </h1>
+
+            <p class="text-gray-300 mt-6 text-lg leading-8">
+
+                Your feedback engourages us!🚗🔥  
+                Help us improve the service.
+
+            </p>
+
+            <img src="https://tse3.mm.bing.net/th/id/OIP.3sB-IaNTMLAJS2yNx8QhXAHaEo?r=0&pid=ImgDet&w=178&h=111&c=7&dpr=1.5&o=7&rm=3"
+                 class="w-52 mt-10">
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="p-10 md:p-14">
+
+            <h2 class="text-4xl font-bold text-yellow-500 text-center mb-3">
+
+                Feedback Form
+
+            </h2>
+
+            <p class="text-gray-400 text-center mb-10">
+
+                Share your HotWheels expectation with us
+
+            </p>
+
+            <!-- Form -->
+
+            <form method="POST"
+                  class="space-y-6">
+
+                {% csrf_token %}
+
+                <!-- Email -->
+
+                <div>
+
+                    <label class="text-gray-300 block mb-2">
+
+                        Email Address
+
+                    </label>
+
+                    <input type="email"
+                           name="email"
+                           placeholder="Enter your email"
+                           required
+
+                           class="w-full p-4 rounded-xl input-box text-white outline-none">
+
+                </div>
+
+                <!-- Rating -->
+
+                <div>
+
+                    <label class="text-gray-300 block mb-4">
+
+                        Rate Your Experience
+
+                    </label>
+
+                    <div class="flex justify-center gap-4 text-4xl text-yellow-400">
+
+                        <label class="cursor-pointer star">
+                            <input type="radio" name="rating" value="1" required class="hidden">
+                            ★
+                        </label>
+
+                        <label class="cursor-pointer star">
+                            <input type="radio" name="rating" value="2" class="hidden">
+                            ★
+                        </label>
+
+                        <label class="cursor-pointer star">
+                            <input type="radio" name="rating" value="3" class="hidden">
+                            ★
+                        </label>
+
+                        <label class="cursor-pointer star">
+                            <input type="radio" name="rating" value="4" class="hidden">
+                            ★
+                        </label>
+
+                        <label class="cursor-pointer star">
+                            <input type="radio" name="rating" value="5" class="hidden">
+                            ★
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <!-- Feedback Text -->
+
+                <div>
+
+                    <label class="text-gray-300 block mb-2">
+
+                        Your Feedback
+
+                    </label>
+
+                    <textarea name="feedback_text"
+                              rows="5"
+                              placeholder="Share your thoughts about HotWheels products and services..."
+                              required
+
+                              class="w-full p-4 rounded-xl input-box text-white outline-none"></textarea>
+
+                </div>
+
+                <!-- Submit Button -->
+
+                <button type="submit"
+                        class="w-full bg-red-600 hover:bg-red-700 transition duration-300 text-white py-4 rounded-xl text-lg font-bold shadow-lg">
+
+                    Submit Feedback
+
+                </button>
+
+            </form>
+
+            <!-- Bottom Text -->
+
+            <p class="text-center text-gray-500 mt-8 text-sm">
+
+                Thank you for using HotWheels 🚘🔥
+
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

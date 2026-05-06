@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HotWheels Registration</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        body{
+            font-family: 'Orbitron', sans-serif;
+        }
+
+    </style>
+
+</head>
+
+<body class="bg-black min-h-screen flex items-center justify-center p-6">
+
+    <!-- Main Container -->
+
+    <div class="w-full max-w-5xl bg-zinc-900 rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-2">
+
+        <!-- Left Side -->
+
+        <div class="relative hidden md:block">
+
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1883&auto=format&fit=crop"
+                 class="w-full h-full object-cover">
+
+            <div class="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center p-10">
+
+                <h1 class="text-5xl font-bold text-red-500 drop-shadow-lg">
+                    HOTWHEELS
+                </h1>
+
+                <p class="text-gray-200 mt-5 text-lg leading-8">
+                    Join the ultimate HotWheels collector community and explore exclusive collections.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="p-10 md:p-14">
+
+            <h2 class="text-4xl font-bold text-red-500 text-center mb-3">
+                Create Account
+            </h2>
+
+            <p class="text-gray-400 text-center mb-10">
+                Register to access premium HotWheels collections
+            </p>
+
+            <!-- Messages -->
+
+            {% if messages %}
+
+                {% for message in messages %}
+
+                    <div class="mb-5 p-4 rounded-xl text-center
+                        {% if message.tags == 'error' %}
+                            bg-red-600 text-white
+                        {% else %}
+                            bg-green-600 text-white
+                        {% endif %}
+                    ">
+
+                        {{ message }}
+
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+            <!-- Form -->
+
+            <form method="POST" class="space-y-6">
+
+                {% csrf_token %}
+
+                <!-- Name -->
+
+                <div>
+
+                    <label class="text-gray-300 block mb-2">
+                        Full Name
+                    </label>
+
+                    <input type="text"
+                           name="name"
+                           placeholder="Enter your name"
+                           required
+
+                           class="w-full p-4 rounded-xl bg-zinc-800 border border-zinc-700 text-white focus:outline-none focus:ring-2 focus:ring-red-500">
+
+                </div>
+
+                <!-- Email -->
+
+                <div>
+
+                    <label class="text-gray-300 block mb-2">
+                        Email Address
+                    </label>
+
+                    <input type="email"
+                           name="email"
+                           placeholder="Enter your email"
+                           required
+
+                           class="w-full p-4 rounded-xl bg-zinc-800 border border-zinc-700 text-white focus:outline-none focus:ring-2 focus:ring-red-500">
+
+                </div>
+
+                <!-- Password -->
+
+                <div>
+
+                    <label class="text-gray-300 block mb-2">
+                        Password
+                    </label>
+
+                    <input type="password"
+                           name="password"
+                           placeholder="Enter password"
+                           required
+
+                           class="w-full p-4 rounded-xl bg-zinc-800 border border-zinc-700 text-white focus:outline-none focus:ring-2 focus:ring-red-500">
+
+                </div>
+
+                <!-- Address -->
+
+                <div>
+
+                    <label class="text-gray-300 block mb-2">
+                        Address
+                    </label>
+
+                    <textarea name="location"
+                              rows="3"
+                              placeholder="Enter your address"
+
+                              class="w-full p-4 rounded-xl bg-zinc-800 border border-zinc-700 text-white focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+
+                </div>
+
+                <!-- Phone -->
+
+                <div>
+
+                    <label class="text-gray-300 block mb-2">
+                        Phone Number
+                    </label>
+
+                    <input type="text"
+                           name="phone"
+                           placeholder="Enter phone number"
+
+                           class="w-full p-4 rounded-xl bg-zinc-800 border border-zinc-700 text-white focus:outline-none focus:ring-2 focus:ring-red-500">
+
+                </div>
+
+                <!-- Button -->
+
+                <button type="submit"
+                        class="w-full bg-red-600 hover:bg-red-700 transition duration-300 text-white py-4 rounded-xl text-lg font-bold shadow-lg">
+
+                    REGISTER NOW
+
+                </button>
+
+            </form>
+
+            <!-- Login Link -->
+
+            <p class="text-gray-400 text-center mt-8">
+
+                Already have an account?
+
+                <a href="/login/" class="text-red-500 hover:underline">
+                    Login
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
